@@ -41,8 +41,8 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-android-extensions-runtime")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.kotlin.android.extensions.runtime)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

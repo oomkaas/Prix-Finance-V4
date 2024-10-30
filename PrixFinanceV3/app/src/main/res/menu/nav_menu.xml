@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view"
+    >
+
+    <group>
+        <item
+            android:title="@string/txt_dashBoard"
+            android:id="@+id/itmDashboard"
+            android:icon="@drawable/ic_dashboard">
+        </item>
+        <item
+            android:title="@string/txt_notifications"
+            android:id="@+id/itmNotifications"
+            android:icon="@drawable/ic_notifications">
+        </item>
+        <item
+            android:title="@string/txt_budgetManagement"
+            android:id="@+id/itmBudgetManagement"
+            android:icon="@drawable/ic_budgetmanagement">
+        </item>
+        <item
+            android:title="@string/txt_financialOverview"
+            android:id="@+id/itmFinancialOverview"
+            android:icon="@drawable/ic_financialoverview">
+        </item>
+        <item
+            android:title="@string/txt_transactions"
+            android:id="@+id/itmTransactions"
+            android:icon="@drawable/ic_transactions">
+        </item>
+        <item
+            android:title="@string/txt_goals"
+            android:id="@+id/itmGoals"
+            android:icon="@drawable/ic_goals">
+        </item>
+    </group>
+
+    <group >
+        <item
+            android:title="@string/txt_settings"
+            android:id="@+id/itmSettings"
+            android:icon="@drawable/ic_settings">
+        </item>
+        <item
+            android:title="@string/txt_logOut"
+            android:id="@+id/itmLogout"
+            android:icon="@drawable/ic_logout">
+        </item>
+    </group>
+
+</menu>

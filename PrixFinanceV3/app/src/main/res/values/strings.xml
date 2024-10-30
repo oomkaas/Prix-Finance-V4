@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Prix Finance</string>
+    <string name="txt_dashBoard">Dashboard</string>
+    <string name="txt_notifications">Notifications</string>
+    <string name="txt_budgetManagement">Budget Management</string>
+    <string name="txt_transactions">Transactions</string>
+    <string name="txt_financialOverview">Financial Overview</string>
+    <string name="txt_goals">Goals</string>
+    <string name="txt_settings">Settings</string>
+    <string name="txt_logOut">Logout</string>
+    <string name="txt_greeting">Hello, User!</string>
+    <string name="tgl_open">Open</string>
+    <string name="tgl_close" translatable="false">Close</string>
+    <string name="txt_btnGetStarted">Get Started</string>
+    <string name="btn_getStarted">Get Started</string>
+    <string name="txt_AppDesc">Keeping Your Finances on Track</string>
+    <string name="txt_toolbarDesc" translatable="false">App Toolbar</string>
+    <string name="txt_imageDesc" translatable="false">App Logo</string>
+    <string name="txtOut_BudId" translatable="false">Budget Id</string>
+    <string name="txtOut_BudAmount" translatable="false">Amount</string>
+    <string name="txtOut_BudCategory" translatable="false">Category</string>
+    <string name="txtOut_BudPeriod" translatable="false">Period</string>
+    <string name="txtOut_BudCreated" translatable="false">Created At</string>
+    <string name="txt_DisplayQuestion" translatable="false">Select A Budget Option \n From Below</string>
+    <string name="txt_Currency" translatable="false">R</string>
+    <string name="txt_lblLoginOption">Or Login With</string>
+    <string name="txt_lblEmailInfo">(Will Be Used As Username)</string>
+    <string name="txt_lblHintErrorMessage">Display Sign-Up Status</string>
+    <string name="txt_Password">Password</string>
+    <string name="txt_ConfirmPassword">Confirm Password</string>
+    <string name="txt_EmailAddress">Email Address</string>
+    <string name="txt_btnLoginSSO">Third Party Single-Sign-On</string>
+    <string name="txt_btnLoginBiometric">Biometrics</string>
+    <string name="txt_btnLogin">Login</string>
+    <string name="txt_btnSignUp">Sign-Up</string>
+    <string name="txt_totBal">Total Balance</string>
+    <string name="output_NetBalance">2309.02</string>
+    <string name="txt_budgets">Budgets</string>
+    <string name="txt_addBudgets">+</string>
+    <string name="txt_btnBack">Back</string>
+    <string name="txt_btnCreate">Create</string>
+    <string name="txt_btnView">View</string>
+    <string name="txt_btnDelete">Delete</string>
+    <string name="txt_btnUpdate">Update</string>
+    <string name="txt_budgetName">Birthday</string>
+    <string name="txt_statusOnTrack">On Track</string>
+    <string name="txt_statusCaution">Caution</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="open_nav" translatable="false">Open Navigation Drawer</string>
+    <string name="close_nav" translatable="false">Close Navigation Drawer</string>
+
+
+</resources>
+
+

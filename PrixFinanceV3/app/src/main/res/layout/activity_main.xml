@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_night"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- this is the toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBarDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:contentDescription="@string/txt_toolbarDesc"
+            android:elevation="4dp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/txt_dashBoard"
+                android:layout_margin="0dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- this is the greeting message-->
+        <TextView
+            android:id="@+id/lblGreetingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/txt_greeting"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolBarDashboard"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="72dp" />
+
+        <!-- this is the search box -->
+        <SearchView
+            android:id="@+id/searchbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_search"
+            android:focusable="false"
+            app:iconifiedByDefault="false"
+            app:layout_constraintTop_toBottomOf="@id/lblGreetingMessage"
+            app:queryHint="Search here"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="139dp">
+
+        </SearchView>
+
+        <!-- this is the total balance box -->
+        <RelativeLayout
+            android:id="@+id/linearBox"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_total"
+            app:layout_constraintTop_toBottomOf="@id/searchbar"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="192dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:text="@string/txt_totBal"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="45dp"
+                android:textColor="@color/white"
+                android:text="@string/txt_Currency"
+                android:textSize="50sp"  />
+
+            <TextView
+                android:id="@+id/outputNetBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/white"
+                android:text="@string/output_NetBalance"
+                android:textSize="45sp"  />
+
+        </RelativeLayout>
+
+        <!-- this is the budget text -->
+        <TextView
+            android:id="@+id/lblBudgets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="35dp"
+            android:text="@string/txt_budgets"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearBox"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="372dp" />
+
+        <!-- this is the add new budget button -->
+        <Button
+            android:id="@+id/btnAddBudget"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="215dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_addbudget"
+            android:text="@string/txt_addBudgets"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/lblBudgets"
+            app:layout_constraintTop_toBottomOf="@id/linearBox"
+            tools:layout_editor_absoluteX="338dp"
+            tools:layout_editor_absoluteY="378dp" />
+
+        <LinearLayout
+            android:id="@+id/linearBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintTop_toBottomOf="@id/lblBudgets"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="434dp">
+
+            <!-- this is the recycle view to display budgets box -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewHome"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- this is the navigation view -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/nav_menu" >
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

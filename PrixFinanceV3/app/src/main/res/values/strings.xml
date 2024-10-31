@@ -45,9 +45,7 @@
     <string name="txt_budgetName">Birthday</string>
     <string name="txt_statusOnTrack">On Track</string>
     <string name="txt_statusCaution">Caution</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
-
+    <string name="txt_btnForgotPassword">Forgot Password?</string>
     <string name="open_nav" translatable="false">Open Navigation Drawer</string>
     <string name="close_nav" translatable="false">Close Navigation Drawer</string>
 

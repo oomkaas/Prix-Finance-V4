@@ -29,13 +29,14 @@
     <string name="txt_btnBack">Back</string>
     <string name="txt_lblLoginOption">Okanye ngena ngezi zingaphantsi</string>
     <string name="txt_lblEmailInfo">(Will Be Used As Username)</string>
-    <string name="txt_ConfirmPassword">Qinisekisa i-Password</string>
+    <string name="txt_btnForgotPassword">Uyilibele i-Password?</string>
+    <string name="txt_Password">i-Password</string>
+    <string name="txt_EmailAddress">Email Address</string>
+    <string name="txt_ConfirmPassword">Phinda Uqinisekisa i-Password</string>
     <string name="txt_btnLoginSSO">Third Party Single-Sign-On</string>
     <string name="txt_btnLoginBiometric">Biometrics</string>
     <string name="txt_btnLogin">Ngena</string>
     <string name="txt_btnSignUp">Bhalisa</string>
-    <string name="txt_Password">i-Password</string>
-    <string name="txt_EmailAddress">Email Address</string>
     <string name="txt_btnCreate">Create</string>
     <string name="txt_btnGetStarted">Qalisa</string>
     <string name="txt_btnView">Buka</string>

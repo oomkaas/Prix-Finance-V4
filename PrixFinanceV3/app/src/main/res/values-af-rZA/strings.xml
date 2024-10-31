@@ -13,8 +13,10 @@
     <string name="tgl_open">Vula</string>
     <string name="txt_lblLoginOption">Or Login With</string>
     <string name="txt_lblEmailInfo">(Will Be Used As Username)</string>
-    <string name="txt_Password">Password</string>
-    <string name="txt_ConfirmPassword">Confirm Password</string>
+
+    <string name="txt_btnForgotPassword">Uyilibele i-Password?</string>
+    <string name="txt_Password">i-Password</string>
+    <string name="txt_ConfirmPassword">Phinda Uqinisekisa i-Password</string>
     <string name="txt_EmailAddress">Email Address</string>
     <string name="txt_btnLoginSSO">Third Party Single-Sign-On</string>
     <string name="txt_btnLoginBiometric">Biometrics</string>

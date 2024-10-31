@@ -43,7 +43,6 @@
       android:textColor="@color/black"
       android:text="@string/btn_getStarted"
       android:textSize="23sp"
-      android:textStyle="bold"
       android:layout_marginTop="125dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

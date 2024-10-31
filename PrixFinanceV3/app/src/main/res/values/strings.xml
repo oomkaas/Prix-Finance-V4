@@ -37,6 +37,7 @@
     <string name="output_NetBalance">2309.02</string>
     <string name="txt_budgets">Budgets</string>
     <string name="txt_addBudgets">+</string>
+    <string name="txt_addNewBudget">Add New Budget</string>
     <string name="txt_btnBack">Back</string>
     <string name="txt_btnCreate">Create</string>
     <string name="txt_btnView">View</string>

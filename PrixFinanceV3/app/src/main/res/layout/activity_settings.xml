@@ -8,6 +8,28 @@
     tools:context=".Settings"
     android:background="@color/bg_night">
 
+    <!-- this is the toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:contentDescription="@string/txt_toolbarDesc"
+        android:elevation="4dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/txt_settings"
+            android:layout_margin="0dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
     <Button
         android:id="@+id/btnUpdateProfile"
         android:text="Update Profile"
@@ -15,6 +37,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="200dp"
         android:textSize="20sp"
+        android:background="@drawable/bg_total"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -26,6 +49,7 @@
         android:layout_height="50dp"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/bg_total"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnUpdateProfile"
@@ -37,7 +61,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textColor="@color/white"
-        android:background="@color/red"
+        android:background="@drawable/bg_total"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +75,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textSize="20sp"
-
+        android:background="@drawable/bg_total"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +88,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textSize="20sp"
+        android:background="@drawable/bg_total"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

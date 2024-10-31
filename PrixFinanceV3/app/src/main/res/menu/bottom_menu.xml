@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_dashboard"/>
+    <item
+        android:id="@+id/budgetManagement"
+        android:title="Budget Management"
+        android:icon="@drawable/ic_budgetmanagement"/>
+    <item
+        android:id="@+id/fab"
+        android:title=""
+        android:enabled="false"/>
+    <item
+        android:id="@+id/notifications"
+        android:title="Notifications"
+        android:icon="@drawable/ic_notifications"/>
+    <item
+        android:id="@+id/transactions"
+        android:title="Transactions"
+        android:icon="@drawable/ic_transactions"/>
+</menu>

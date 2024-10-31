@@ -18,5 +18,8 @@ class ItemAdapter(private val items: List<Item>) : RecyclerView.Adapter<ItemView
     }
 
     override fun getItemCount(): Int = items.size
+    fun submitList(filteredItems: List<Item>) {
+
+    }
 }
 

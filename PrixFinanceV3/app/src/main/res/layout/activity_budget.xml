@@ -5,6 +5,100 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Budget">
+    tools:context=".AddNewBudget"
+    android:background="@drawable/bg_main">
+
+    <!-- this is the toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:contentDescription="@string/txt_toolbarDesc"
+        android:elevation="4dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/txt_addNewBudget"
+            android:layout_margin="0dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/txtBudgetName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Budget Name"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/light_blue"
+        android:textColorHint="@color/light_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.171"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
+        android:id="@+id/txtBudgetTarget"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Budget Maxx Amount To Spend"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/light_blue"
+        android:textColorHint="@color/light_blue"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtBudgetName"
+        app:layout_constraintVertical_bias="0.133"
+        app:layout_constraintWidth_percent=".8" />
+
+    <EditText
+        android:id="@+id/txtBudget"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Additional Notes"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtBudgetTarget"
+        app:layout_constraintVertical_bias="0.154"
+        app:layout_constraintWidth_percent=".8"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/light_blue"
+        android:textColorHint="@color/light_blue"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Budget"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="145dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

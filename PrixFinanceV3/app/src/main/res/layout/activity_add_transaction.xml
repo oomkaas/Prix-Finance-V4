@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_night">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="382dp"
+        android:layout_height="448dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/bg_powder_blue" />
+
+    <EditText
+        android:id="@+id/edtTransactionName"
+        android:layout_width="366dp"
+        android:layout_height="70dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="18dp"
+        android:hint="Transaction Name"
+        android:textColor="@color/bg_night" />
+
+    <EditText
+        android:id="@+id/edtTransactionAmount"
+        android:layout_width="366dp"
+        android:layout_height="70dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="90dp"
+        android:hint="Amount (ZAR)"
+        android:textColor="@color/bg_night" />
+
+    <Spinner
+        android:id="@+id/TransactionCategory"
+        android:layout_width="366dp"
+        android:layout_height="60dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="165dp" />
+
+    <Button
+        android:id="@+id/btnDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="230dp"
+        android:backgroundTint="@color/light_blue"
+        android:text="Select Date" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="280dp"
+        android:text="No Date Selected"
+        android:textColor="@color/buttonBlack" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="330dp"
+        android:backgroundTint="@color/bg_night"
+        android:text="Save Transaction" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="380dp"
+        android:backgroundTint="@color/gunmetal"
+        android:text="Cancel " />
+
+</FrameLayout>

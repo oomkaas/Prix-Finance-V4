@@ -8,5 +8,7 @@
     <color name="Edit_Text_Black">#222021</color>
     <color name="bg_night">#131515</color>
     <color name="red">#FF0000</color>
+    <color name="gunmetal">#262B2B</color>
+    <color name="powder_blue">#A6BEC9</color>
 
 </resources>

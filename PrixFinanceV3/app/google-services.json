@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212270844708",
+    "project_id": "prix-finance-v3",
+    "storage_bucket": "prix-finance-v3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212270844708:android:b25b57f4e0a6bafcb501b1",
+        "android_client_info": {
+          "package_name": "com.lemi.prix_finance_v3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmsxVRyK6Pio1WuyLxfXz5A2baQ-4g2gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

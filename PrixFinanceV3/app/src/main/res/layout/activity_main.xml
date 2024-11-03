@@ -5,7 +5,7 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main"
+    android:background="@drawable/bg_img"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -162,7 +162,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewHome"
                 android:layout_width="match_parent"
-                android:layout_height="255dp"
+                android:layout_height="295dp"
                 >
 
             </androidx.recyclerview.widget.RecyclerView>

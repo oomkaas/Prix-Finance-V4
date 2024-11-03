@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_night"
+    android:background="@drawable/bg_img"
     tools:context=".Transactions">
 
     <RelativeLayout
@@ -17,15 +17,15 @@
 
         <TextView
             android:id="@+id/txtTransactionManagement"
-            android:layout_width="275dp"
-            android:layout_height="100dp"
+            android:layout_width="360dp"
+            android:layout_height="68dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="108dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="19dp"
             android:layout_marginBottom="626dp"
             android:autoSizeTextType="uniform"
             android:text="Transaction Management"
@@ -37,7 +37,7 @@
         <ImageView
             android:id="@+id/imTransactions"
             android:layout_width="390dp"
-            android:layout_height="340dp"
+            android:layout_height="390dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -75,14 +75,14 @@
 
         <ImageView
             android:id="@+id/imWeeklyExpenses"
-            android:layout_width="wrap_content"
-            android:layout_height="253dp"
+            android:layout_width="200dp"
+            android:layout_height="90dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="105dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="190dp"
+            android:layout_marginEnd="119dp"
             app:srcCompat="@drawable/bg_powder_blue" />
 
         <TextView
@@ -95,7 +95,7 @@
             android:layout_marginTop="110dp"
             android:autoSizeTextType="uniform"
             android:text="Daily Expenses"
-            android:textColor="@color/bg_night"
+            android:textColor="@color/white_blue"
             android:textStyle="bold" />
 
         <FrameLayout

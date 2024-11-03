@@ -6,140 +6,162 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register"
-    android:background="@color/bg_night">
+    android:background="@drawable/bg_img">
 
     <TextView
+        android:id="@+id/lblRegisterPageHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign-Up New User"
-        android:textSize="20sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/light_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/inpUserName"
-        android:layout_marginBottom="70dp"
-    />
-
-    <EditText
-        android:id="@+id/inpUserName"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:textColor="@color/light_blue"
-        android:textColorHint="@color/light_blue"
-        android:textSize="16sp"
-        android:hint="First Name"
-        android:textAlignment="center"
-        android:layout_marginTop="150dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/edit_text_bg"/>
-
-    <EditText
-        android:id="@+id/inpUserLastName"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:textColor="@color/light_blue"
-        android:textColorHint="@color/light_blue"
-        android:textSize="16sp"
-        android:hint="Last Name"
-        android:textAlignment="center"
-        android:background="@drawable/edit_text_bg"
-        android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@id/inpUserName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <EditText
-        android:id="@+id/inpUserEmail"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:textColor="@color/light_blue"
-        android:textColorHint="@color/light_blue"
-        android:textSize="16sp"
-        android:hint="@string/txt_EmailAddress"
-        android:textAlignment="center"
-        android:background="@drawable/edit_text_bg"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inpUserLastName"
+        android:layout_marginTop="10dp"
         />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_lblEmailInfo"
-        android:textColor="@color/light_blue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="3dp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@id/inpUserEmail"
-        />
-
-    <EditText
-        android:id="@+id/inpUserPassword"
-        android:layout_width="380dp"
+    <ImageView
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:textColor="@color/light_blue"
-        android:textColorHint="@color/light_blue"
-        android:textSize="16sp"
-        android:hint="@string/txt_Password"
-        android:textAlignment="center"
-        android:background="@drawable/edit_text_bg"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/prix_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inpUserEmail"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/lblRegisterPageHead"/>
 
-    <EditText
-        android:id="@+id/inpUserPassConfirm"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:textColor="@color/light_blue"
-        android:textColorHint="@color/light_blue"
-        android:textSize="16sp"
-        android:hint="@string/txt_ConfirmPassword"
-        android:background="@drawable/edit_text_bg"
-        android:layout_marginTop="25dp"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/inpUserPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
 
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:text="@string/txt_btnSignUp"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/button_bg"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:background="@drawable/bg_signup"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/errorMessageOutput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:visibility="visible"
-        android:hint="@string/txt_lblHintErrorMessage"
-        android:textColor="@color/red"
-        android:textColorHint="@color/light_blue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@id/btnSignUp"
-        />
+
+        <EditText
+            android:id="@+id/inpUserName"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@color/light_blue"
+            android:textSize="16sp"
+            android:hint="First Name"
+            android:textAlignment="center"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/edit_text_bg"/>
+
+        <EditText
+            android:id="@+id/inpUserLastName"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@color/light_blue"
+            android:textSize="16sp"
+            android:hint="Last Name"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@id/inpUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/inpUserEmail"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@color/light_blue"
+            android:textSize="16sp"
+            android:hint="@string/txt_EmailAddress"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginTop="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inpUserLastName"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_lblEmailInfo"
+            android:textColor="@color/light_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/inpUserEmail"
+            />
+
+        <EditText
+            android:id="@+id/inpUserPassword"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@color/light_blue"
+            android:textSize="16sp"
+            android:hint="@string/txt_Password"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inpUserEmail"/>
+
+        <EditText
+            android:id="@+id/inpUserPassConfirm"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@color/light_blue"
+            android:textSize="16sp"
+            android:hint="@string/txt_ConfirmPassword"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginTop="25dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/inpUserPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="@string/txt_btnSignUp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/bg_main"
+            />
+
+        <TextView
+            android:id="@+id/loginStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="visible"
+            android:hint="@string/txt_lblHintErrorMessage"
+            android:textColor="@color/red"
+            android:textColorHint="@color/light_blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="40dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

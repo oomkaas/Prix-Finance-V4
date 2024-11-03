@@ -24,21 +24,24 @@
     <string name="txt_DisplayQuestion" translatable="false">Select A Budget Option \n From Below</string>
     <string name="txt_Currency" translatable="false">R</string>
     <string name="txt_lblLoginOption">Or Login With</string>
-    <string name="txt_lblEmailInfo">(Will Be Used As Username)</string>
-    <string name="txt_lblHintErrorMessage">Display Sign-Up Status</string>
+    <string name="txt_lblLoginStatus">Login Pending...</string>
+    <string name="txt_lblEmailInfo">(Email Entered Will Be Used As Username For Login)</string>
+    <string name="txt_lblHintErrorMessage">Pending Sign-Up...</string>
     <string name="txt_Password">Password</string>
     <string name="txt_ConfirmPassword">Confirm Password</string>
     <string name="txt_EmailAddress">Email Address</string>
-    <string name="txt_btnLoginSSO">Third Party Single-Sign-On</string>
+    <string name="txt_btnLoginSSO">Google Single-Sign-On</string>
     <string name="txt_btnLoginBiometric">Biometrics</string>
     <string name="txt_btnLogin">Login</string>
     <string name="txt_btnSignUp">Sign-Up</string>
     <string name="txt_totBal">Total Balance</string>
     <string name="output_NetBalance">2309.02</string>
     <string name="txt_budgets">Budgets</string>
+    <string name="txt_successfulSignUp">Successful Registration, Please Press Continue</string>
     <string name="txt_addBudgets">+</string>
     <string name="txt_addNewBudget">Add New Budget</string>
     <string name="txt_btnBack">Back</string>
+    <string name="txt_btnContinue">Continue</string>
     <string name="txt_btnCreate">Create</string>
     <string name="txt_btnView">View</string>
     <string name="txt_btnDelete">Delete</string>

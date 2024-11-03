@@ -99,35 +99,56 @@
 
         <EditText
             android:id="@+id/inpUserPassword"
-            android:layout_width="380dp"
+            android:layout_width="350dp"
             android:layout_height="50dp"
             android:textColor="@color/light_blue"
             android:textColorHint="@color/light_blue"
             android:textSize="16sp"
             android:hint="@string/txt_Password"
+            android:inputType="textPassword"
             android:textAlignment="center"
             android:background="@drawable/edit_text_bg"
             android:layout_marginTop="40dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/hidePasswordToggle"
             app:layout_constraintTop_toBottomOf="@id/inpUserEmail"/>
+
+        <ImageView
+            android:id="@+id/hidePasswordToggle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_hidepassword"
+            app:layout_constraintStart_toEndOf="@id/inpUserPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/inpUserPassword"
+            app:layout_constraintBottom_toBottomOf="@id/inpUserPassword" />
 
         <EditText
             android:id="@+id/inpUserPassConfirm"
-            android:layout_width="380dp"
+            android:layout_width="350dp"
             android:layout_height="50dp"
             android:textColor="@color/light_blue"
             android:textColorHint="@color/light_blue"
             android:textSize="16sp"
             android:hint="@string/txt_ConfirmPassword"
+            android:inputType="textPassword"
             android:background="@drawable/edit_text_bg"
             android:layout_marginTop="25dp"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/inpUserPassword"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/hideConfirmPasswordToggle"
             />
 
+        <ImageView
+            android:id="@+id/hideConfirmPasswordToggle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_hidepassword"
+            app:layout_constraintStart_toEndOf="@id/inpUserPassConfirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/inpUserPassConfirm"
+            app:layout_constraintBottom_toBottomOf="@id/inpUserPassConfirm" />
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="250dp"

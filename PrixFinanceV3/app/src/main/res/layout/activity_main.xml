@@ -14,29 +14,35 @@
         android:layout_height="match_parent">
 
         <!-- this is the toolbar -->
+
+        <!-- this is the greeting message-->
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBarDashboard"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/txt_toolbarDesc"
             android:elevation="4dp"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="46dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="0dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/txt_dashBoard"
-                android:layout_margin="0dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="35sp"
                 android:textStyle="bold" />
 
+
+
         </androidx.appcompat.widget.Toolbar>
 
-        <!-- this is the greeting message-->
         <TextView
             android:id="@+id/lblGreetingMessage"
             android:layout_width="wrap_content"
@@ -135,10 +141,10 @@
             android:id="@+id/btnAddBudget"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:text="@string/txt_addBudgets"
             android:layout_marginStart="215dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/btn_addbudget"
-            android:text="@string/txt_addBudgets"
+            android:background="@drawable/bg_powder_blue"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -162,7 +168,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewHome"
                 android:layout_width="match_parent"
-                android:layout_height="295dp"
+                android:layout_height="150dp"
                 >
 
             </androidx.recyclerview.widget.RecyclerView>

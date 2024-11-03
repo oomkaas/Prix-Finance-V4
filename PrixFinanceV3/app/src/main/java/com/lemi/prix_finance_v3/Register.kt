@@ -1,10 +1,14 @@
 package com.lemi.prix_finance_v3
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -23,6 +27,8 @@ class Register : AppCompatActivity() {
     private lateinit var confirmPassword: EditText
     private lateinit var username: EditText
     private lateinit var loginStatus: TextView
+    private lateinit var hideConfirmPassword: ImageView
+    private lateinit var hidePassword: ImageView
     private lateinit var btnSignUp: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +48,12 @@ class Register : AppCompatActivity() {
         password = findViewById(R.id.inpUserPassword)
         confirmPassword = findViewById(R.id.inpUserPassConfirm)
         btnSignUp = findViewById(R.id.btnSignUp)
+        hidePassword = findViewById(R.id.hidePasswordToggle)
+        hideConfirmPassword = findViewById(R.id.hideConfirmPasswordToggle)
+
+
+        setupPasswordVisibilityToggle(password, hidePassword)
+        setupPasswordVisibilityToggle(confirmPassword, hideConfirmPassword)
 
         btnSignUp.setOnClickListener {
             verifyInput(
@@ -54,6 +66,7 @@ class Register : AppCompatActivity() {
         }
     }
 
+    //method that verifies user input before submitting to store in noSQL db: Firebase
     private fun verifyInput(name: String, surname: String, username: String, password: String, confirmedPass: String) {
         //try and catch so user input does not crash app when errors occur, catch any Exceptions and repeat
         try {
@@ -126,4 +139,28 @@ class Register : AppCompatActivity() {
                 }
         }
     }
+
+    private fun setupPasswordVisibilityToggle(editText: EditText, imageView: ImageView) {
+        imageView.setOnClickListener {
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(editText.windowToken, 0)
+
+            val selection = editText.selectionEnd
+            editText.setSelection(selection)
+
+            if (editText.inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+                editText.inputType = InputType.TYPE_CLASS_TEXT
+                imageView.setImageResource(R.drawable.ic_viewpassword)
+            }
+            else{
+                editText.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                imageView.setImageResource(R.drawable.ic_hidepassword)
+            }
+
+            editText.setSelection(selection)
+        }
+    }
+
+
+
 }

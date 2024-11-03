@@ -3,16 +3,20 @@ package com.lemi.prix_finance_v3
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.credentials.GetPasswordOption
 
 class Login : AppCompatActivity() {
 
     private lateinit var btnLogin: Button
     private lateinit var txtViewNewUser: TextView
+    private lateinit var username: EditText
+    private lateinit var password: EditText
     private lateinit var btnLoginBiometric: Button
     private lateinit var btnLoginSSO: Button
 
@@ -37,6 +41,7 @@ class Login : AppCompatActivity() {
         //routing actions on button clicks
 
         btnLogin.setOnClickListener{
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

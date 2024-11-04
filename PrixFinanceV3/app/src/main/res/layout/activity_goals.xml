@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Goals"
-    android:background="@drawable/bg_img">
-
+    android:background="@color/bg_night">
 
     <EditText
         android:id="@+id/editTxtTargetAmount"
@@ -33,7 +32,7 @@
         android:id="@+id/editTxtCategory"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="92dp"
         android:background="@drawable/edit_text_bg_white"
         android:hint="Category"
         android:paddingLeft="20dp"
@@ -104,7 +103,7 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@color/bg_night"
         app:layout_constraintTop_toTopOf="parent" >
 
     <androidx.appcompat.widget.Toolbar

@@ -59,4 +59,5 @@
     <string name="txt_createNewBudget">Create New Budget</string>
     <string name="txt_addIncome">Add Income</string>
     <string name="txt_viewBudgets">View Budgets</string>
+    <string name="txt_about_devs">About Developers</string>
 </resources>

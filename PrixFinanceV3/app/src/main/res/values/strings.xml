@@ -33,7 +33,7 @@
     <string name="txt_btnLoginSSO">Google Single-Sign-On</string>
     <string name="txt_btnLoginBiometric">Biometrics</string>
     <string name="txt_btnLogin">Login</string>
-    <string name="txt_btnSignUp">Sign-Up</string>
+    <string name="txt_btnSignUp">Register</string>
     <string name="txt_totBal">Total Balance</string>
     <string name="output_NetBalance">2309.02</string>
     <string name="txt_budgets">Budgets</string>
@@ -61,6 +61,7 @@
     <string name="txt_createNewBudget">Create New Budget</string>
     <string name="txt_addIncome">Add Income</string>
     <string name="txt_viewBudgets">View Budgets</string>
+    <string name="txt_about_devs">About The Developers</string>
 
 
 </resources>

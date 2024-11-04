@@ -5,7 +5,7 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_img"
+    android:background="@color/bg_night"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -18,14 +18,13 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
+            android:background="@color/bg_night"
             app:layout_constraintTop_toTopOf="parent" >
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBarDashboard"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
                 android:contentDescription="@string/txt_toolbarDesc"
                 android:elevation="4dp"
                 android:gravity="center"
@@ -218,6 +217,9 @@
         android:id="@+id/navView_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white_blue"
+        android:background="@drawable/bg_main"
         android:layout_gravity="end"
         android:fitsSystemWindows="true"
         app:menu="@menu/nav_menu" >

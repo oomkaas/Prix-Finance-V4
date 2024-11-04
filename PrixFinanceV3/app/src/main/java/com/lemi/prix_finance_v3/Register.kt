@@ -3,8 +3,11 @@ package com.lemi.prix_finance_v3
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.InputType
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -30,6 +33,11 @@ class Register : AppCompatActivity() {
     private lateinit var hideConfirmPassword: ImageView
     private lateinit var hidePassword: ImageView
     private lateinit var btnSignUp: Button
+    private var isLoginSliderActive = false
+    private lateinit var sliderLoginUser: TextView
+    private lateinit var sliderNewUser: TextView
+    private lateinit var sliderLeft: Drawable
+    private lateinit var sliderRight: Drawable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +58,8 @@ class Register : AppCompatActivity() {
         btnSignUp = findViewById(R.id.btnSignUp)
         hidePassword = findViewById(R.id.hidePasswordToggle)
         hideConfirmPassword = findViewById(R.id.hideConfirmPasswordToggle)
+        sliderLoginUser = findViewById(R.id.txtViewLoginUser)
+        sliderNewUser = findViewById(R.id.txtViewNewUser)
 
 
         setupPasswordVisibilityToggle(password, hidePassword)
@@ -64,6 +74,33 @@ class Register : AppCompatActivity() {
                 confirmPassword.text.toString()
             )
         }
+
+
+        sliderLoginUser.setOnClickListener {
+            toggleSlider(true)
+            startActivity(Intent(this, Login::class.java))
+        }
+
+        sliderNewUser.setOnClickListener {
+            toggleSlider(false)
+        }
+    }
+
+    //method that handles the colour change between the sliders created
+    private fun toggleSlider(isLogin: Boolean) {
+        isLoginSliderActive = isLogin
+
+        val loginColor = if (isLogin) Color.parseColor("#FF0000") else Color.GRAY
+        val newUserColor = if (!isLogin) Color.parseColor("#FF0000") else Color.GRAY
+
+        sliderLoginUser.setTextColor(loginColor)
+        sliderNewUser.setTextColor(newUserColor)
+
+        val loginBackground = if (isLogin) R.drawable.bg_activeloginslider else R.drawable.bg_loginslider
+        val newUserBackground = if (!isLogin) R.drawable.bg_activeregisterslider else R.drawable.bg_registerslider
+
+        sliderLoginUser.setBackgroundResource(loginBackground)
+        sliderNewUser.setBackgroundResource(newUserBackground)
     }
 
     //method that verifies user input before submitting to store in noSQL db: Firebase

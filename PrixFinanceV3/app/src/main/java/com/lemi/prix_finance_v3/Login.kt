@@ -2,12 +2,9 @@ package com.lemi.prix_finance_v3
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.graphics.drawable.Drawable
+import android.graphics.Color
 import android.os.Bundle
-import android.text.InputType
 import android.text.InputType.*
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -16,13 +13,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 
@@ -33,10 +27,12 @@ class Login : AppCompatActivity() {
     private lateinit var btnLoginSSO: Button
     private lateinit var username: EditText
     private lateinit var password: EditText
-    private lateinit var txtViewNewUser: TextView
+    private lateinit var sliderAddUser: TextView
+    private lateinit var sliderLoginUser: TextView
     private lateinit var hidePassword: ImageView
     private lateinit var viewPassword: ImageView
     private lateinit var dbRef: DatabaseReference
+    private var isLoginSliderActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +49,8 @@ class Login : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         btnLoginBiometric = findViewById(R.id.btnLoginBiometrics)
         btnLoginSSO = findViewById(R.id.btnLoginSSO)
-        txtViewNewUser = findViewById(R.id.txtViewNewUser)
+        sliderAddUser = findViewById(R.id.txtViewNewUser)
+        sliderLoginUser = findViewById(R.id.txtViewLoginUser)
         password = findViewById(R.id.inpLoginPassword)
         username = findViewById(R.id.inpLoginEmail)
         hidePassword = findViewById(R.id.hideLoginPasswordToggle)
@@ -82,10 +79,32 @@ class Login : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        txtViewNewUser.setOnClickListener {
-            startActivity(Intent(this, Register::class.java))
+
+        sliderLoginUser.setOnClickListener {
+            toggleSlider(true)
         }
 
+        sliderAddUser.setOnClickListener {
+            toggleSlider(false)
+            startActivity(Intent(this, Register::class.java))
+        }
+    }
+
+    //method that handles the colour change between the sliders created
+    private fun toggleSlider(isLogin: Boolean) {
+        isLoginSliderActive = isLogin
+
+        val loginColor = if (isLogin) Color.parseColor("#FF0000") else Color.GRAY
+        val newUserColor = if (!isLogin) Color.parseColor("#FF0000") else Color.GRAY
+
+        sliderLoginUser.setTextColor(loginColor)
+        sliderAddUser.setTextColor(newUserColor)
+
+        val loginBackground = if (isLogin) R.drawable.bg_activeloginslider else R.drawable.bg_loginslider
+        val newUserBackground = if (!isLogin) R.drawable.bg_activeregisterslider else R.drawable.bg_registerslider
+
+        sliderLoginUser.setBackgroundResource(loginBackground)
+        sliderAddUser.setBackgroundResource(newUserBackground)
     }
 
     private fun verifyLoginCredentials(username: String, enteredPassword: String) {

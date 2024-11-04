@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_img"
+    android:background="@color/bg_night"
     tools:context=".Budget">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,11 +17,11 @@
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
+            android:background="@color/bg_night"
             app:layout_constraintTop_toTopOf="parent" >
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBarNotifications"
+                android:id="@+id/toolBarBudget"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"

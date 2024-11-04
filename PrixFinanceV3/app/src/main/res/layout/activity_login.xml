@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:background="@drawable/bg_img">
+    android:background="@color/bg_night">
 
     <TextView
         android:id="@+id/lblLoginPageHead"
@@ -15,22 +15,12 @@
         android:text="@string/txt_btnLogin"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:textColor="@color/light_blue"
+        android:textColor="@color/white_blue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         />
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/prix_logo"
-        android:layout_marginTop="25dp"
-        app:layout_constraintTop_toBottomOf="@id/lblLoginPageHead"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="139dp" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,23 +28,51 @@
         android:layout_height="560dp"
         android:background="@drawable/bg_signup"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/loginSlider"
+            android:layout_width="300dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="48dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="7dp">
 
 
-        <TextView
-            android:id="@+id/lblLoginStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/txt_lblLoginStatus"
-            android:textColor="@color/white_blue"
-            app:layout_constraintBottom_toTopOf="@+id/inpLoginEmail"
-            app:layout_constraintEnd_toEndOf="@+id/inpLoginPassword"
-            app:layout_constraintHorizontal_bias="0.159"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/txtViewLoginUser"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@id/loginSlider"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_loginslider"
+                android:padding="5dp"
+                android:text="@string/txt_btnLogin"
+                android:textAlignment="center"
+                android:textColor="@color/gunmetal"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtViewNewUser"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_registerslider"
+                android:text="@string/txt_btnSignUp"
+                android:textColor="@color/gunmetal"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <EditText
             android:id="@+id/inpLoginEmail"
@@ -65,21 +83,33 @@
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/light_blue"
+            android:textColorHint="@color/light_blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.154"
-            app:layout_constraintWidth_percent=".8"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/light_blue"
-            android:textColorHint="@color/light_blue"/>
+            app:layout_constraintWidth_percent=".8" />
 
+
+        <ImageView
+            android:id="@+id/hideLoginPasswordToggle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_hidepassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/inpLoginPassword"
+            app:layout_constraintTop_toBottomOf="@id/inpLoginEmail" />
 
         <EditText
             android:id="@+id/inpLoginPassword"
-            android:layout_width="290dp"
+            android:layout_width="360dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_bg"
@@ -94,22 +124,11 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.338"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inpLoginEmail"
-            app:layout_constraintVertical_bias="0.008"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent=".8" />
-
-        <ImageView
-            android:id="@+id/hideLoginPasswordToggle"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="32dp"
-            android:src="@drawable/ic_hidepassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.35"
-            app:layout_constraintStart_toEndOf="@id/inpLoginPassword"
-            app:layout_constraintTop_toBottomOf="@id/inpLoginEmail" />
 
         <TextView
             android:id="@+id/forgotPass"
@@ -118,22 +137,23 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/txt_btnForgotPassword"
+            android:textColor="@color/gunmetal"
             android:textSize="15sp"
-            android:textColor="@color/white_blue"
+            android:textStyle=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/inpLoginPassword"
             app:layout_constraintHorizontal_bias="0.961"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inpLoginPassword"
-            app:layout_constraintVertical_bias="0.004"
-            />
+            app:layout_constraintVertical_bias="0.004" />
 
         <TextView
             android:id="@+id/lblOrLoginWith"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_lblLoginOption"
-            android:textColor="@color/white_blue"
+            android:textColor="@color/gunmetal"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
@@ -147,8 +167,8 @@
             android:layout_height="50dp"
             android:background="@drawable/button_bg"
             android:text="@string/txt_btnLoginBiometric"
-            android:textColor="@color/bg_night"
-            android:textSize="16sp"
+            android:textColor="@color/light_blue"
+            android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,8 +184,8 @@
             android:layout_height="50dp"
             android:background="@drawable/button_bg"
             android:text="@string/txt_btnLoginSSO"
-            android:textColor="@color/bg_night"
-            android:textSize="16sp"
+            android:textColor="@color/light_blue"
+            android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -175,30 +195,15 @@
             app:layout_constraintWidth_percent=".8" />
 
 
-
-        <TextView
-            android:id="@+id/txtViewNewUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/gunmetal"
-            android:text="@string/txt_btnSignUp"
-            android:textColor="@color/light_blue"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="55dp"
-            app:layout_constraintTop_toBottomOf="@id/inpLoginPassword"/>
-
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/button_bg"
             android:text="@string/txt_btnLogin"
-            android:textColor="@color/bg_night"
-            android:textSize="16sp"
-            android:layout_marginTop="25dp"
+            android:textColor="@color/light_blue"
+            android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +211,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.554"
             app:layout_constraintWidth_percent=".8" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

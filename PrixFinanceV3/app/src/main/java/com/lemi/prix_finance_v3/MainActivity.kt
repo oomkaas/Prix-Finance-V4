@@ -120,6 +120,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, Goals::class.java))
                     true
                 }
+                R.id.itmAboutDevelopers-> {
+                    // Handle goals action
+                    startActivity(Intent(this, AboutDevelopers::class.java))
+                    true
+                }
                 R.id.itmSettings -> {
                     // Handle settings action
                     startActivity(Intent(this, Settings::class.java))

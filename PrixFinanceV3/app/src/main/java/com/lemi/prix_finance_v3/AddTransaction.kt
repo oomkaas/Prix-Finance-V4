@@ -3,16 +3,21 @@ package com.lemi.prix_finance_v3
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class AddTransaction : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_transaction)
 
         val edtAmount: EditText = findViewById(R.id.edtTransactionAmount)
         val edtName: EditText = findViewById(R.id.edtTransactionName)
@@ -75,11 +80,12 @@ class AddTransaction : AppCompatActivity() {
                 finish()
             }
 
-        btnCancel.setOnClickListener {
-            setResult(RESULT_CANCELED)
-            finish()
-        }
+            btnCancel.setOnClickListener {
+                setResult(RESULT_CANCELED)
+                finish()
+            }
 
         }
     }
+
 }

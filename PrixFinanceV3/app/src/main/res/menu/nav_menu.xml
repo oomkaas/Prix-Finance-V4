@@ -30,6 +30,11 @@
             android:id="@+id/itmGoals"
             android:icon="@drawable/ic_goals">
         </item>
+        <item
+            android:title="@string/txt_about_devs"
+            android:id="@+id/itmAboutDevelopers"
+            android:icon="@drawable/ic_aboutdevs">
+        </item>
     </group>
 
     <group >

@@ -140,6 +140,7 @@ class Register : AppCompatActivity() {
         }
     }
 
+    //this function is to serve the password visibilirt locks place adjacent to the userinput fields
     private fun setupPasswordVisibilityToggle(editText: EditText, imageView: ImageView) {
         imageView.setOnClickListener {
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

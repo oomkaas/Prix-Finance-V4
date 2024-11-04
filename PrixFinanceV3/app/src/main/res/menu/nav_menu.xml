@@ -21,11 +21,6 @@
             android:icon="@drawable/ic_budgetmanagement">
         </item>
         <item
-            android:title="@string/txt_financialOverview"
-            android:id="@+id/itmFinancialOverview"
-            android:icon="@drawable/ic_financialoverview">
-        </item>
-        <item
             android:title="@string/txt_transactions"
             android:id="@+id/itmTransactions"
             android:icon="@drawable/ic_transactions">

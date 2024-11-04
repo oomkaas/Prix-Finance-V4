@@ -1,25 +1,32 @@
 package com.lemi.prix_finance_v3
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var displayActiveBudgets : RecyclerView
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navView: NavigationView
     private lateinit var addNewBudget: Button
     private lateinit var searchBudgets: SearchView
     private lateinit var adapter: ItemAdapter
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     private val items = mutableListOf(
         Item("Munch", 50.99, "Completed"),
@@ -36,18 +43,34 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        //finding all views in current page
+        drawerLayout = findViewById(R.id.activity_home)
         displayActiveBudgets = findViewById(R.id.recyclerViewHome)
         addNewBudget = findViewById(R.id.btnAddBudget)
         searchBudgets = findViewById(R.id.searchbar)
+        bottomNavigationView = findViewById(R.id.bottomNav)
+        navView = findViewById(R.id.navView_dashboard)
 
+        // Setup toolbar
+        setSupportActionBar(findViewById(R.id.toolBarDashboard))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        // Setup hamburger button click listener
+        findViewById<ImageView>(R.id.imgHamburger).setOnClickListener {
+            toggleDrawer()
+        }
+
+        //setting up the recyclerview and navigators
         setupRecyclerView()
+        setupBottomNavigation()
 
         displayActiveBudgets.setOnClickListener {
             // Handle RecyclerView click
             val position = displayActiveBudgets.getChildAdapterPosition(it)
             if (position != RecyclerView.NO_POSITION) {
                 val item = items[position]
-                Toast.makeText(this, "Clicked on ${item.title}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Clicked on ${item.title}", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -68,6 +91,66 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
+        // Setup navigation view item selection
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.itmDashboard -> {
+                    // Handle dashboard action
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.itmNotifications -> {
+                    // Handle notifications action
+                    startActivity(Intent(this, Notifications::class.java))
+                    true
+                }
+                R.id.itmBudgetManagement -> {
+                    // Handle budget management action
+                    startActivity(Intent(this, BudgetsMenu::class.java))
+                    true
+                }
+                R.id.itmTransactions -> {
+                    // Handle transactions action
+                    startActivity(Intent(this, Transactions::class.java))
+                    true
+                }
+                R.id.itmGoals -> {
+                    // Handle goals action
+                    startActivity(Intent(this, Goals::class.java))
+                    true
+                }
+                R.id.itmSettings -> {
+                    // Handle settings action
+                    startActivity(Intent(this, Settings::class.java))
+                    true
+                }
+                R.id.itmLogout -> {
+                    // Handle logout action
+                    true
+                }
+            }
+            toggleDrawer()
+            true
+        }
+    }
+
+    private fun toggleDrawer() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawer(GravityCompat.END)
+        } else {
+            drawerLayout.openDrawer(GravityCompat.END)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                toggleDrawer()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun addItem() {
@@ -89,6 +172,35 @@ class MainActivity : AppCompatActivity() {
             displayActiveBudgets.adapter = adapter
             displayActiveBudgets.layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun setupBottomNavigation() {
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itmHome -> {
+                    // Handling home action
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.itmBudgetManagement -> {
+                    // Handling budget management action
+                    startActivity(Intent(this, BudgetsMenu::class.java))
+                    true
+                }
+                R.id.itmGoals -> {
+                    // Handling goals action
+                    startActivity(Intent(this, Goals::class.java))
+                    true
+                }
+                R.id.itmTransactions -> {
+                    // Handling transactions action
+                    startActivity(Intent(this, Transactions::class.java))
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

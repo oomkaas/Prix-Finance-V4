@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Settings"
-    android:background="@color/bg_night">
+    android:background="@drawable/bg_img">
 
     <!-- this is the toolbar -->
     <androidx.appcompat.widget.Toolbar
@@ -71,7 +71,7 @@
 
     <Button
         android:id="@+id/btnNoFunction"
-        android:text="No Function Yet"
+        android:text="About Developers"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textSize="20sp"

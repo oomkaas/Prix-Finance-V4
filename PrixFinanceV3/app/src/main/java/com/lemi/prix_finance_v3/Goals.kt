@@ -23,20 +23,21 @@ class Goals : AppCompatActivity() {
             insets
         }
 
+        bottomNavigationView = findViewById(R.id.bottomNavGoals)
 
         // Bottom navigation setup
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home ->{ intent = Intent(this, Login::class.java)
+                R.id.itmHome ->{ intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)}
 
-                R.id.budgetManagement -> {intent = Intent(this, BudgetsMenu::class.java)
+                R.id.itmBudgetManagement -> {intent = Intent(this, BudgetsMenu::class.java)
                 startActivity(intent)}
 
-                R.id.notifications -> {intent = Intent(this, Notifications::class.java)
+                R.id.itmGoals -> {intent = Intent(this, Goals::class.java)
                 startActivity(intent)}
 
-                R.id.transactions -> {intent = Intent(this, Transactions::class.java)
+                R.id.itmTransactions -> {intent = Intent(this, Transactions::class.java)
                 startActivity(intent)}
             }
             true

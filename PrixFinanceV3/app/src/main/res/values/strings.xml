@@ -38,11 +38,11 @@
     <string name="output_NetBalance">2309.02</string>
     <string name="txt_budgets">Budgets</string>
     <string name="txt_successfulSignUp">Successful Registration, Please Press Continue</string>
-    <string name="txt_addBudgets">+</string>
     <string name="txt_addNewBudget">Add New Budget</string>
-    <string name="txt_btnBack">Back</string>
     <string name="txt_btnContinue">Continue</string>
+    <string name="txt_addBudgets">+</string>
     <string name="txt_btnCreate">Create</string>
+    <string name="txt_btnBack">Back</string>
     <string name="txt_btnView">View</string>
     <string name="txt_btnDelete">Delete</string>
     <string name="txt_btnUpdate">Update</string>
@@ -52,6 +52,15 @@
     <string name="txt_btnForgotPassword">Forgot Password?</string>
     <string name="open_nav" translatable="false">Open Navigation Drawer</string>
     <string name="close_nav" translatable="false">Close Navigation Drawer</string>
+    <string name="txt_selectLanguage">Select Language To Continue In</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_addTransaction">Add Transaction\n</string>
+    <string name="txt_Amount">Amount</string>
+    <string name="txt_period">Period</string>
+    <string name="txt_budgetMenu">Budgets Menu</string>
+    <string name="txt_createNewBudget">Create New Budget</string>
+    <string name="txt_addIncome">Add Income</string>
+    <string name="txt_viewBudgets">View Budgets</string>
 
 
 </resources>

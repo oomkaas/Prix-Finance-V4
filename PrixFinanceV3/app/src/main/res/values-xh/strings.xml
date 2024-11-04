@@ -31,11 +31,15 @@
     <string name="txt_lblEmailInfo">(Will Be Used As Username)</string>
     <string name="txt_btnForgotPassword">Uyilibele i-Password?</string>
     <string name="txt_Password">i-Password</string>
+    <string name="txt_successfulSignUp">Successful Registration, Please Press Continue</string>
+    <string name="txt_addNewBudget">Add New Budget</string>
+    <string name="txt_btnContinue">Qhubekeka</string>
     <string name="txt_EmailAddress">Email Address</string>
     <string name="txt_ConfirmPassword">Phinda Uqinisekisa i-Password</string>
     <string name="txt_btnLoginSSO">Third Party Single-Sign-On</string>
     <string name="txt_btnLoginBiometric">Biometrics</string>
     <string name="txt_btnLogin">Ngena</string>
+    <string name="txt_lblLoginStatus">Zama uNgena...</string>
     <string name="txt_btnSignUp">Bhalisa</string>
     <string name="txt_btnCreate">Create</string>
     <string name="txt_btnGetStarted">Qalisa</string>
@@ -46,4 +50,13 @@
     <string name="txt_budgetName">Birthday</string>
     <string name="txt_statusOnTrack">On Track</string>
     <string name="txt_statusCaution">Lumkela</string>
+    <string name="txt_selectLanguage">Select Language To Continue In</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_addTransaction">Add Transaction\n</string>
+    <string name="txt_Amount">Amount\n</string>
+    <string name="txt_period">Period</string>
+    <string name="txt_budgetMenu">Budgets Menu</string>
+    <string name="txt_createNewBudget">Create New Budget</string>
+    <string name="txt_addIncome">Add Income</string>
+    <string name="txt_viewBudgets">View Budgets</string>
 </resources>

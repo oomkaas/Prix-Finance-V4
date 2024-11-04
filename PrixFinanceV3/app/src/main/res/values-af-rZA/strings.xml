@@ -13,7 +13,10 @@
     <string name="tgl_open">Vula</string>
     <string name="txt_lblLoginOption">Or Login With</string>
     <string name="txt_lblEmailInfo">(Will Be Used As Username)</string>
-
+    <string name="txt_lblLoginStatus">Login Pending...</string>
+    <string name="txt_successfulSignUp">Successful Registration, Please Press Continue</string>
+    <string name="txt_addNewBudget">Add New Budget</string>
+    <string name="txt_btnContinue">Continue</string>
     <string name="txt_btnForgotPassword">Uyilibele i-Password?</string>
     <string name="txt_Password">i-Password</string>
     <string name="txt_ConfirmPassword">Phinda Uqinisekisa i-Password</string>
@@ -47,4 +50,13 @@
     <string name="txt_budgetName">Birthday</string>
     <string name="txt_statusOnTrack">On Track</string>
     <string name="txt_statusCaution">Lumkela</string>
+    <string name="txt_selectLanguage">Select Language To Continue In</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_addTransaction">Add Transaction\n</string>
+    <string name="txt_Amount">Amount\n</string>
+    <string name="txt_period">Period</string>
+    <string name="txt_budgetMenu">Budgets Menu</string>
+    <string name="txt_createNewBudget">Create New Budget</string>
+    <string name="txt_addIncome">Add Income</string>
+    <string name="txt_viewBudgets">View Budgets</string>
 </resources>

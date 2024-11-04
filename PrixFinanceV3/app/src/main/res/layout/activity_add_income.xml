@@ -5,14 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_img"
-    tools:context=".Budget">
+    tools:context=".AddIncome"
+    android:background="@drawable/bg_img">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <!--this is the app toolbar -->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
@@ -21,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent" >
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBarNotifications"
+                android:id="@+id/toolBarAddIncome"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
@@ -45,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@string/txt_budgets"
+                    android:text="@string/txt_addIncome"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="35sp"
@@ -54,49 +52,17 @@
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent">
 
-
-            <TextView
-                android:id="@+id/txtTotalBalance"
-                android:layout_width="135dp"
-                android:layout_height="36dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="85dp"
-                android:autoSizeTextType="uniform"
-                android:text="Total Balance"
-                android:textColor="@color/white_blue" />
-
-            <TextView
-                android:id="@+id/txtTotalExpenses"
-                android:layout_width="155dp"
-                android:layout_height="45dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="85dp"
-                android:layout_marginEnd="45dp"
-                android:autoSizeTextType="uniform"
-                android:text="Total Expenses"
-                android:textColor="@color/light_blue" />
-
-        </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- this is the navigation view -->
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView_Budgets"
+        android:id="@+id/navView_AddIncome"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:fitsSystemWindows="true"
         app:menu="@menu/nav_menu" />
 
-</androidx.drawerlayout.widget.DrawerLayout>
 
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation (libs.firebase.database.ktx.v2100)
     implementation(libs.kotlin.android.extensions.runtime)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.core.ktx)

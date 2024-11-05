@@ -42,6 +42,9 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.firebase:firebase-bom:33.5.1")
+    implementation ("com.google.firebase:firebase-auth")
+    implementation ("com.google.android.gms:play-services-auth:21.2.0")
     implementation (libs.firebase.database.ktx.v2100)
     implementation(libs.kotlin.android.extensions.runtime)
     implementation(libs.androidx.recyclerview)

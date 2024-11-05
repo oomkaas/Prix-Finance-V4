@@ -139,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="35dp"
-            android:text="@string/txt_budgets"
+            android:text="@string/txt_totalBudget"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="italic|bold"
@@ -150,21 +150,6 @@
             tools:layout_editor_absoluteY="372dp" />
 
         <!-- this is the add new budget button -->
-        <Button
-            android:id="@+id/btnAddBudget"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="@string/txt_addBudgets"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_powder_blue"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/lblBudgets"
-            app:layout_constraintTop_toBottomOf="@id/linearBox"
-            tools:layout_editor_absoluteX="338dp"
-            tools:layout_editor_absoluteY="378dp" />
 
         <LinearLayout
             android:id="@+id/linearBox2"
@@ -181,7 +166,6 @@
 
 
         </LinearLayout>
-
         <!-- this is the recycle view to display budgets box -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewHome"
@@ -191,6 +175,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/bottomNav"
             app:layout_constraintTop_toBottomOf="@id/lblBudgets"
+            android:layout_marginBottom="20dp"
             >
         </androidx.recyclerview.widget.RecyclerView>
 

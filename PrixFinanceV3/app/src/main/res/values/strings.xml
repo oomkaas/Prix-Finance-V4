@@ -62,6 +62,10 @@
     <string name="txt_addIncome">Add Income</string>
     <string name="txt_viewBudgets">View Budgets</string>
     <string name="txt_about_devs">About The Developers</string>
+    <string name="txt_btnBudgetOption">Budgeting Options</string>
+    <string name="txt_EditBudget">Edit Budget</string>
+    <string name="txt_deleteBudget">Delete Budget</string>
+    <string name="txt_totalBudget">Active Budgets</string>
 
 
 </resources>

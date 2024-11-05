@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         //finding all views in current page
         drawerLayout = findViewById(R.id.activity_home)
         displayActiveBudgets = findViewById(R.id.recyclerViewHome)
-        addNewBudget = findViewById(R.id.btnAddBudget)
         searchBudgets = findViewById(R.id.searchbar)
         bottomNavigationView = findViewById(R.id.bottomNav)
         navView = findViewById(R.id.navView_dashboard)
@@ -107,7 +106,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.itmBudgetManagement -> {
                     // Handle budget management action
-                    startActivity(Intent(this, BudgetsMenu::class.java))
+                    startActivity(Intent(this, Budget::class.java))
                     true
                 }
                 R.id.itmTransactions -> {
@@ -191,7 +190,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.itmBudgetManagement -> {
                     // Handling budget management action
-                    startActivity(Intent(this, BudgetsMenu::class.java))
+                    startActivity(Intent(this, Budget::class.java))
                     true
                 }
                 R.id.itmGoals -> {

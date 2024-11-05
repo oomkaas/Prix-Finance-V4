@@ -29,6 +29,7 @@ class Register : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var confirmPassword: EditText
     private lateinit var username: EditText
+    private lateinit var networth: EditText
     private lateinit var loginStatus: TextView
     private lateinit var hideConfirmPassword: ImageView
     private lateinit var hidePassword: ImageView
@@ -53,6 +54,7 @@ class Register : AppCompatActivity() {
         firstname = findViewById(R.id.inpUserName)
         lastname = findViewById(R.id.inpUserLastName)
         username = findViewById(R.id.inpUserEmail)
+        networth = findViewById(R.id.inpUserNetWorth)
         password = findViewById(R.id.inpUserPassword)
         confirmPassword = findViewById(R.id.inpUserPassConfirm)
         btnSignUp = findViewById(R.id.btnSignUp)
@@ -69,6 +71,7 @@ class Register : AppCompatActivity() {
             verifyInput(
                 firstname.text.toString(),
                 lastname.text.toString(),
+                networth.text.toString(),
                 username.text.toString(),
                 password.text.toString(),
                 confirmPassword.text.toString()
@@ -104,12 +107,12 @@ class Register : AppCompatActivity() {
     }
 
     //method that verifies user input before submitting to store in noSQL db: Firebase
-    private fun verifyInput(name: String, surname: String, username: String, password: String, confirmedPass: String) {
+    private fun verifyInput(name: String, surname: String, netWorth: String, username: String,  password: String, confirmedPass: String) {
         //try and catch so user input does not crash app when errors occur, catch any Exceptions and repeat
         try {
             //if statement to check if the name and surname input is not empty,
             // if it is then it will need the user to add it by displaying error in else
-            if (name.isNotEmpty() && surname.isNotEmpty()){
+            if (name.isNotEmpty() && surname.isNotEmpty() && netWorth.isNotEmpty() ){
                 //if statement to check if the username input is not empty and contains an @ symbol,
                 // if it is then it will need the user to fix it by displaying error in else
                 if( username.isNotEmpty() && username.contains('@')){
@@ -138,7 +141,7 @@ class Register : AppCompatActivity() {
         }
         catch (e: Exception) {
             Toast.makeText(this, "Error processing input: ${e.message}", Toast.LENGTH_LONG).show()
-            verifyInput(name, surname, username, password, confirmedPass)
+            verifyInput(name, surname, username, password, netWorth, confirmedPass)
         }
     }
 

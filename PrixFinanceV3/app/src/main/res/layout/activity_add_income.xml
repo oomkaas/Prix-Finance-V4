@@ -53,16 +53,145 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/imWeeklyExpenses"
+            android:layout_width="366dp"
+            android:layout_height="393dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:background="@drawable/button_powder_blue" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/txt_totalBalance"
+                android:textColor="@color/gunmetal"
+                android:textSize="35dp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:padding="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="@string/txt_Currency"
+                    android:textColor="@color/gunmetal"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/remBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text=""
+                    android:hint="2309.02"
+                    android:textColor="@color/gunmetal"
+                    android:textColorHint="@color/gunmetal"
+                    android:textSize="30dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTxtBudgetName"
+                android:layout_width="312dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="18dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Amount To Add (Zar)"
+                android:textColor="@color/white_blue"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColorHint="@color/white_blue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/editTxtCategory"
+                android:layout_width="312dp"
+                android:layout_height="62dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="18dp"
+                android:textColor="@color/white_blue"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Category to Add To"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColorHint="@color/white_blue"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnDeleteBudget"
+            android:layout_width="168dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="506dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavTransactions"
+android:layout_marginBottom="90dp"
+            android:background="@drawable/bg_addbudget"
+            android:backgroundTint="@color/gunmetal"
+            android:text="@string/txt_addIncome"
+            android:textColor="@color/white_blue" />
+
+
+    <!-- Bottom Navigation View -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemTextColor="@color/gunmetal"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/gunmetal"
+        app:menu="@menu/bottom_menu"
+        android:focusable="true"
+        android:background="@drawable/bg_bottom_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- this is the navigation view -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView_AddIncome"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:fitsSystemWindows="true"
-        app:menu="@menu/nav_menu" />
+<com.google.android.material.navigation.NavigationView
+android:id="@+id/navView_transactions"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:layout_gravity="end"
+app:itemTextColor="@color/white"
+app:itemIconTint="@color/white_blue"
+android:background="@drawable/bg_main"
+android:fitsSystemWindows="true"
+app:menu="@menu/nav_menu" />
 
 
-</androidx.drawerlayout.widget.DrawerLayout>
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>

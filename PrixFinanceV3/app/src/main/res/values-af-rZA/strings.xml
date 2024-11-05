@@ -65,4 +65,5 @@
     <string name="txt_deleteBudget">Delete Budget</string>
     <string name="txt_totalBudget">Active Budgets</string>
     <string name="txt_TransactionManager">Transaction Manager</string>
+    <string name="txt_totalBalance">Remaining Balance</string>
 </resources>

@@ -65,38 +65,44 @@
                 </androidx.appcompat.widget.Toolbar>
             </com.google.android.material.appbar.AppBarLayout>
 
-            <Button
-                android:id="@+id/btnAddTransaction"
-                android:layout_width="168dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="594dp"
-                android:layout_marginEnd="132dp"
-                android:background="@drawable/bg_deletebudget"
-                android:backgroundTint="@color/gunmetal"
-                android:text="Delete Budget"
-                android:textColor="@color/white_blue" />
 
             <LinearLayout
                 android:id="@+id/imWeeklyExpenses"
                 android:layout_width="366dp"
-                android:layout_height="193dp"
+                android:layout_height="293dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="105dp"
+                android:layout_marginTop="155dp"
                 android:layout_marginEnd="12dp"
                 android:orientation="vertical"
                 android:background="@drawable/button_powder_blue" >
 
                 <EditText
+                    android:id="@+id/editTxtBudgetName"
+                    android:layout_width="312dp"
+                    android:layout_height="62dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginStart="18dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="Budget Name"
+                    android:textColor="@color/white_blue"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textColorHint="@color/white_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+<EditText
                     android:id="@+id/editTxtCategory"
                     android:layout_width="312dp"
                     android:layout_height="62dp"
                     android:layout_marginTop="18dp"
                     android:layout_marginStart="18dp"
+    android:textColor="@color/white_blue"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Category"
                     android:paddingLeft="20dp"
@@ -115,6 +121,7 @@
                     android:layout_marginTop="18dp"
                     android:layout_marginStart="18dp"
                     android:layout_marginBottom="114dp"
+                    android:textColor="@color/white_blue"
                     android:background="@drawable/edit_text_bg"
                     android:hint="Amount"
                     android:paddingLeft="20dp"
@@ -131,16 +138,18 @@
             </LinearLayout>
 
 
-            <!--        <com.github.mikephil.charting.charts.BarChart-->
-            <!--            android:id="@+id/barChart"-->
-            <!--            android:layout_width="320dp"-->
-            <!--            android:layout_height="170dp"-->
-            <!--            android:layout_alignParentTop="true"-->
-            <!--            android:layout_alignParentEnd="true"-->
-            <!--            android:layout_gravity="center"-->
-            <!--            android:layout_marginTop="115dp"-->
-            <!--            android:layout_marginEnd="30dp" />-->
-
+            <Button
+                android:id="@+id/btnDeleteBudget"
+                android:layout_width="168dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="506dp"
+                android:layout_marginEnd="110dp"
+                android:background="@drawable/bg_deletebudget"
+                android:backgroundTint="@color/gunmetal"
+                android:text="@string/txt_deleteBudget"
+                android:textColor="@color/white_blue" />
 
         </RelativeLayout>
 

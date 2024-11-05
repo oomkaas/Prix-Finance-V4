@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class Transactions : AppCompatActivity() {
 
@@ -28,6 +33,10 @@ class Transactions : AppCompatActivity() {
 
     private lateinit var editTxtTransactionName: EditText
     private lateinit var editTxtTransactionAmount: EditText
+    private lateinit var navView: NavigationView
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var drawerLayout: DrawerLayout
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +62,105 @@ class Transactions : AppCompatActivity() {
 
         // Create the notification channel
         createNotificationChannel()
+
+        //navigations
+        bottomNavigationView = findViewById(R.id.bottomNavTransactions)
+        drawerLayout = findViewById(R.id.main)
+        navView = findViewById(R.id.navView_transactions)
+
+        // Bottom navigation setup
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itmHome ->{ intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)}
+
+                R.id.itmBudgetManagement -> {intent = Intent(this, Budget::class.java)
+                    startActivity(intent)}
+
+                R.id.itmGoals -> {intent = Intent(this, Goals::class.java)
+                    startActivity(intent)}
+
+                R.id.itmTransactions -> {intent = Intent(this, Transactions::class.java)
+                    startActivity(intent)}
+            }
+            true
+        }
+
+
+        // Setup navigation view item selection
+        navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.itmDashboard -> {
+                    // Handle dashboard action
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+
+                R.id.itmNotifications -> {
+                    // Handle notifications action
+                    startActivity(Intent(this, Notifications::class.java))
+                    true
+                }
+
+                R.id.itmBudgetManagement -> {
+                    // Handle budget management action
+                    startActivity(Intent(this, Budget::class.java))
+                    true
+                }
+
+                R.id.itmTransactions -> {
+                    // Handle transactions action
+                    startActivity(Intent(this, Transactions::class.java))
+                    true
+                }
+
+                R.id.itmGoals -> {
+                    // Handle goals action
+                    startActivity(Intent(this, Goals::class.java))
+                    true
+                }
+
+                R.id.itmAboutDevelopers -> {
+                    // Handle goals action
+                    startActivity(Intent(this, AboutDevelopers::class.java))
+                    true
+                }
+
+                R.id.itmSettings -> {
+                    // Handle settings action
+                    startActivity(Intent(this, Settings::class.java))
+                    true
+                }
+
+                R.id.itmLogout -> {
+                    // Handle logout action
+                    true
+                }
+            }
+            toggleDrawer()
+            true
+        }
+
+        // Setup toolbar
+        setSupportActionBar(findViewById(R.id.toolBarTransactions))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        // Setup hamburger button click listener
+        findViewById<ImageView>(R.id.imgHamburger).setOnClickListener {
+            toggleDrawer()
+        }
     }
+
+    private fun toggleDrawer() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawer(GravityCompat.END)
+        } else {
+            drawerLayout.openDrawer(GravityCompat.END)
+        }
+
+    }
+
 
     private fun sendTransactionNotification() {
         val transactionName = findViewById<EditText>(R.id.editTxtCategory).text.toString()

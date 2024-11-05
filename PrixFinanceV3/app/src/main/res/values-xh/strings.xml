@@ -64,4 +64,5 @@
     <string name="txt_EditBudget">Edit Budget</string>
     <string name="txt_deleteBudget">Delete Budget</string>
     <string name="txt_totalBudget">Active Budgets</string>
+    <string name="txt_TransactionManager">Transaction Manager</string>
 </resources>

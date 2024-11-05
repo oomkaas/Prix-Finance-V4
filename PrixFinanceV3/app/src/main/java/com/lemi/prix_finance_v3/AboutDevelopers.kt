@@ -18,9 +18,6 @@ class AboutDevelopers : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navView: NavigationView
-    private lateinit var btnAddIncome: TextView
-    private lateinit var btnCreateBudget: TextView
-    private lateinit var btnViewBudget: TextView
     private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +49,7 @@ class AboutDevelopers : AppCompatActivity() {
                 }
                 R.id.itmBudgetManagement -> {
                     // Handle budget management action
-                    startActivity(Intent(this, BudgetsMenu::class.java))
+                    startActivity(Intent(this, Budget::class.java))
                     true
                 }
                 R.id.itmTransactions -> {
@@ -84,24 +81,40 @@ class AboutDevelopers : AppCompatActivity() {
             true
         }
 
-    }
 
+        // Bottom navigation setup
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itmHome -> {
+                    intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+
+                R.id.itmBudgetManagement -> {
+                    intent = Intent(this, Budget::class.java)
+                    startActivity(intent)
+                }
+
+                R.id.itmGoals -> {
+                    intent = Intent(this, Goals::class.java)
+                    startActivity(intent)
+                }
+
+                R.id.itmTransactions -> {
+                    intent = Intent(this, Transactions::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
+        }
+
+    }
 
 private fun toggleDrawer() {
     if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
         drawerLayout.closeDrawer(GravityCompat.END)
     } else {
         drawerLayout.openDrawer(GravityCompat.END)
-    }
-}
-
-override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    return when (item.itemId) {
-        android.R.id.home -> {
-            toggleDrawer()
-            true
-        }
-        else -> super.onOptionsItemSelected(item)
     }
 }
 

@@ -31,7 +31,7 @@ class Goals : AppCompatActivity() {
                 R.id.itmHome ->{ intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)}
 
-                R.id.itmBudgetManagement -> {intent = Intent(this, BudgetsMenu::class.java)
+                R.id.itmBudgetManagement -> {intent = Intent(this, Budget::class.java)
                 startActivity(intent)}
 
                 R.id.itmGoals -> {intent = Intent(this, Goals::class.java)

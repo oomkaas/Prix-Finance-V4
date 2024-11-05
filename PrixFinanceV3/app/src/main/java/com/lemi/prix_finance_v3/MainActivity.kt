@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var displayActiveBudgets : RecyclerView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
-//    private lateinit var addNewBudget: TextView
     private lateinit var searchBudgets: SearchView
     private lateinit var adapter: ItemAdapter
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -75,11 +74,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Clicked on ${item.title}", Toast.LENGTH_LONG).show()
             }
         }
-
-//        addNewBudget.setOnClickListener {
-//            // Add new budget logic
-//            addItem()
-//        }
 
         searchBudgets.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -148,22 +142,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             drawerLayout.openDrawer(GravityCompat.END)
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                toggleDrawer()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    private fun addItem() {
-        val newItem = Item("New Budget", 0.00, "Pending")
-        items.add(newItem)
-        adapter.notifyItemInserted(items.size - 1)
     }
 
     private fun filterItems(query: String) {

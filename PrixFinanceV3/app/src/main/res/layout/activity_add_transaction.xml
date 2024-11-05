@@ -31,10 +31,10 @@
                 android:id="@+id/toolBarBudget"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
                 android:contentDescription="@string/txt_toolbarDesc"
                 android:elevation="4dp"
                 android:gravity="center"
+                android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="0dp">
 

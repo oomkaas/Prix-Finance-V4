@@ -101,6 +101,58 @@
             android:layout_marginEnd="12dp"
             app:srcCompat="@drawable/button_powder_blue" />
 
+        <EditText
+            android:id="@+id/editTxtCategory"
+            android:layout_width="262dp"
+            android:layout_height="62dp"
+            android:layout_alignBottom="@+id/imWeeklyExpenses"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="138dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="114dp"
+            android:background="@drawable/edit_text_bg_white"
+            android:hint="Category"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/bg_night"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.110"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent=".8" />
+
+        <EditText
+            android:id="@+id/editTxtTransactionAmount"
+            android:layout_width="254dp"
+            android:layout_height="63dp"
+            android:layout_alignBottom="@+id/imWeeklyExpenses"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="82dp"
+            android:layout_marginTop="203dp"
+            android:layout_marginEnd="59dp"
+            android:layout_marginBottom="48dp"
+            android:background="@drawable/edit_text_bg_white"
+            android:hint="Amount"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/bg_night"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.110"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent=".8" />
+
         <FrameLayout
             android:id="@+id/f1_car_scroll_wheel"
             android:layout_width="380dp"
@@ -115,17 +167,23 @@
             android:layout_marginBottom="79dp"
             android:padding="16dp">
 
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/recyclerviewTransactions"-->
+<!--                android:layout_width="343dp"-->
+<!--                android:layout_height="230dp"/>-->
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/transactionContainer"
             android:layout_width="356dp"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/f1_car_scroll_wheel"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="top"
             android:layout_marginStart="16dp"
             android:layout_marginTop="376dp"
+            android:layout_marginBottom="212dp"
             android:padding="16dp" />
 
 <!--        <com.github.mikephil.charting.charts.BarChart-->
@@ -181,5 +239,6 @@
         android:background="@drawable/bg_main"
         android:fitsSystemWindows="true"
         app:menu="@menu/nav_menu" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

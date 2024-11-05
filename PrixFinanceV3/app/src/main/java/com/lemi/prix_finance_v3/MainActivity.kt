@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var displayActiveBudgets : RecyclerView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
-    private lateinit var addNewBudget: Button
+//    private lateinit var addNewBudget: TextView
     private lateinit var searchBudgets: SearchView
     private lateinit var adapter: ItemAdapter
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity() {
         searchBudgets = findViewById(R.id.searchbar)
         bottomNavigationView = findViewById(R.id.bottomNav)
         navView = findViewById(R.id.navView_dashboard)
+//        addNewBudget = findViewById(R.id.btnAddNewBudget) // Add this line
+
 
         // Setup toolbar
         setSupportActionBar(findViewById(R.id.toolBarDashboard))
@@ -73,10 +76,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        addNewBudget.setOnClickListener {
-            // Add new budget logic
-            addItem()
-        }
+//        addNewBudget.setOnClickListener {
+//            // Add new budget logic
+//            addItem()
+//        }
 
         searchBudgets.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -106,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.itmBudgetManagement -> {
                     // Handle budget management action
-                    startActivity(Intent(this, Budget::class.java))
+                    startActivity(Intent(this, BudgetsMenu::class.java))
                     true
                 }
                 R.id.itmTransactions -> {

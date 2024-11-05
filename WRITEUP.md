@@ -56,9 +56,18 @@ Development Process
 - Automated tests (unit and integration) are used extensively to maintain app stability across different devices.
 - User acceptance testing (UAT) helps ensure that the app meets user needs and expectations before major releases.
 
+## Leveraging AI Assistants for Our POE
+
+In preparing our POE submission, our team utilized AI assistants ChatGPT, Claude, and Phind AI to enhance our code. These tools proved invaluable in several ways:
+- First, ChatGPT, Claude, and Phind AI each scanned our code to identify syntax errors, logical issues, and potential optimizations. This initial review was essential for ensuring the code would function as intended.
+- Additionally, all three AI assistants contributed to refining our code formatting, spacing, naming conventions, and overall organization. Their suggestions helped us produce a cleaner, more readable final submission that aligned with industry best practices. A significant benefit was the iterative process of having the AIs analyze the code, implementing their suggestions, and then re-running checks. This cycle, especially with Phind AI's advanced debugging capabilities, allowed us to optimize our code at a granular level.
+- Finally, the assistants provided clear explanations and rationale behind each suggestion, deepening our understanding and enabling us to make informed improvements. Leveraging ChatGPT, Claude, and Phind AI ultimately contributed to a high-quality POE submission that we are proud of.
+
 ## Conclusion
 Prix Finance is more than just a budgeting tool; it’s a comprehensive platform that empowers users to take control of their financial well-being in an enjoyable, manageable way. With its simple, easy-to-navigate UI and gentle, eye-friendly color scheme, Prix Finance ensures users feel comfortable and supported in their financial journeys. Through practical tools, personalized insights, and gamified elements, Prix Finance makes financial planning accessible, efficient, and engaging.
 
 # References
 ** ChatGPT and Phind AI were used for the generation of this WriteUp, as well as for general error checking and minor bug fixes in this code **
-OpenAI (2024). Prix Finance: Personal Finance Planning and Budgeting Application. [online] ChatGPT. Available at: https://chatgpt.com/ [Accessed 5 Nov. 2024].Phind (2024). Prix Finance: Personal Finance Planning and Budgeting Application. [online] Phind.com. Available at: https://www.phind.com [Accessed 5 Nov. 2024].
+- OpenAI (2024). Prix Finance: Personal Finance Planning and Budgeting Application. [online] ChatGPT. Available at: https://chatgpt.com/ [Accessed 5 Nov. 2024].
+- Phind (2024). Prix Finance: Personal Finance Planning and Budgeting Application. [online] Phind.com. Available at: https://www.phind.com [Accessed 5 Nov. 2024].
+- Anthropic (2023). Prix Finance: Personal Finance Planning and Budgeting Application. [online] Claude.ai. Available at: https://claude.ai/ [Accessed 5 Nov. 2024].

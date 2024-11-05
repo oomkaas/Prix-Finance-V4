@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" >
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBarDashboard"
+                android:id="@+id/toolBarAboutDevelopers"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:contentDescription="@string/txt_toolbarDesc"
@@ -110,9 +110,29 @@
             android:text="Mugammad Benjamin | Senior Developer \nBSc in Computer Sciences \nIIE Varsity College 2024" />
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Bottom Navigation View -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavAboutDevelopers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:itemTextColor="@color/gunmetal"
+            app:itemIconSize="30dp"
+            app:itemIconTint="@color/gunmetal"
+            app:menu="@menu/bottom_menu"
+            android:focusable="true"
+            android:background="@drawable/bg_bottom_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </LinearLayout>
     <!-- this is the navigation view -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView_aboutDevelopers"

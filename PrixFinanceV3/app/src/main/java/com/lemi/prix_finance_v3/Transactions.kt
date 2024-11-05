@@ -96,12 +96,6 @@ class Transactions : AppCompatActivity() {
                     true
                 }
 
-                R.id.itmNotifications -> {
-                    // Handle notifications action
-                    startActivity(Intent(this, Notifications::class.java))
-                    true
-                }
-
                 R.id.itmBudgetManagement -> {
                     // Handle budget management action
                     startActivity(Intent(this, Budget::class.java))

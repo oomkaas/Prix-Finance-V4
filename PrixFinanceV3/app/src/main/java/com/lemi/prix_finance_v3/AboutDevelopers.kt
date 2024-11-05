@@ -32,6 +32,7 @@ class AboutDevelopers : AppCompatActivity() {
         //finding the drawer
         drawerLayout = findViewById(R.id.main)
         navView = findViewById(R.id.navView_aboutDevelopers)
+        bottomNavigationView = findViewById(R.id.bottomNavAboutDevelopers)
 
 
         // Setup navigation view item selection
@@ -42,11 +43,7 @@ class AboutDevelopers : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
                     true
                 }
-                R.id.itmNotifications -> {
-                    // Handle notifications action
-                    startActivity(Intent(this, Notifications::class.java))
-                    true
-                }
+
                 R.id.itmBudgetManagement -> {
                     // Handle budget management action
                     startActivity(Intent(this, Budget::class.java))

@@ -10,11 +10,11 @@
             android:id="@+id/itmDashboard"
             android:icon="@drawable/ic_dashboard">
         </item>
-        <item
-            android:title="@string/txt_notifications"
-            android:id="@+id/itmNotifications"
-            android:icon="@drawable/ic_notifications">
-        </item>
+<!--        <item-->
+<!--            android:title="@string/txt_notifications"-->
+<!--            android:id="@+id/itmNotifications"-->
+<!--            android:icon="@drawable/ic_notifications">-->
+<!--        </item>-->
         <item
             android:title="@string/txt_budgetManagement"
             android:id="@+id/itmBudgetManagement"

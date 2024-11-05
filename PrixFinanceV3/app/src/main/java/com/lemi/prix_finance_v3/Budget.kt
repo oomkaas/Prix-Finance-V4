@@ -26,7 +26,6 @@ class Budget : AppCompatActivity() {
     private lateinit var btnCreateBudget: TextView
     private lateinit var btnEditBudget: TextView
     private lateinit var btnDeleteBudget: TextView
-    private lateinit var btnViewBudget: TextView
     private lateinit var drawerLayout: DrawerLayout
 
 
@@ -82,7 +81,7 @@ class Budget : AppCompatActivity() {
         }
 
         btnDeleteBudget.setOnClickListener {
-            intent = Intent(this, EditBudget::class.java)
+            intent = Intent(this, DeleteBudget::class.java)
             startActivity(intent)
         }
 
@@ -119,12 +118,6 @@ class Budget : AppCompatActivity() {
                 R.id.itmDashboard -> {
                     // Handle dashboard action
                     startActivity(Intent(this, MainActivity::class.java))
-                    true
-                }
-
-                R.id.itmNotifications -> {
-                    // Handle notifications action
-                    startActivity(Intent(this, Notifications::class.java))
                     true
                 }
 

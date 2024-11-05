@@ -64,7 +64,25 @@ class MainActivity : AppCompatActivity() {
 
         //setting up the recyclerview and navigators
         setupRecyclerView()
-        setupBottomNavigation()
+
+        // Bottom navigation setup
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.itmHome ->{ intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)}
+
+                R.id.itmBudgetManagement -> {intent = Intent(this, Budget::class.java)
+                    startActivity(intent)}
+
+                R.id.itmGoals -> {intent = Intent(this, Goals::class.java)
+                    startActivity(intent)}
+
+                R.id.itmTransactions -> {intent = Intent(this, Transactions::class.java)
+                    startActivity(intent)}
+            }
+            true
+        }
+
 
         displayActiveBudgets.setOnClickListener {
             // Handle RecyclerView click
@@ -94,11 +112,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.itmDashboard -> {
                     // Handle dashboard action
                     startActivity(Intent(this, MainActivity::class.java))
-                    true
-                }
-                R.id.itmNotifications -> {
-                    // Handle notifications action
-                    startActivity(Intent(this, Notifications::class.java))
                     true
                 }
                 R.id.itmBudgetManagement -> {
@@ -160,33 +173,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @Suppress("DEPRECATION")
-    private fun setupBottomNavigation() {
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.itmHome -> {
-                    // Handling home action
-                    startActivity(Intent(this, MainActivity::class.java))
-                    true
-                }
-                R.id.itmBudgetManagement -> {
-                    // Handling budget management action
-                    startActivity(Intent(this, Budget::class.java))
-                    true
-                }
-                R.id.itmGoals -> {
-                    // Handling goals action
-                    startActivity(Intent(this, Goals::class.java))
-                    true
-                }
-                R.id.itmTransactions -> {
-                    // Handling transactions action
-                    startActivity(Intent(this, Transactions::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
-    }
 }
 

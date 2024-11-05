@@ -108,7 +108,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editTxtBudgetName"
+                android:id="@+id/editTxtAmountToAdd"
                 android:layout_width="312dp"
                 android:layout_height="62dp"
                 android:layout_marginTop="18dp"
@@ -147,13 +147,13 @@
 
 
         <Button
-            android:id="@+id/btnDeleteBudget"
+            android:id="@+id/btnAddIncome"
             android:layout_width="168dp"
             android:layout_height="50dp"
             android:layout_marginTop="506dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottomNavTransactions"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavAddIncome"
 android:layout_marginBottom="90dp"
             android:background="@drawable/bg_addbudget"
             android:backgroundTint="@color/gunmetal"
@@ -163,7 +163,7 @@ android:layout_marginBottom="90dp"
 
     <!-- Bottom Navigation View -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavTransactions"
+        android:id="@+id/bottomNavAddIncome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -181,7 +181,7 @@ android:layout_marginBottom="90dp"
 
     <!-- this is the navigation view -->
 <com.google.android.material.navigation.NavigationView
-android:id="@+id/navView_transactions"
+android:id="@+id/navView_addIncome"
 android:layout_width="wrap_content"
 android:layout_height="match_parent"
 android:layout_gravity="end"

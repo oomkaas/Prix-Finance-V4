@@ -1,13 +1,12 @@
 package com.lemi.prix_finance_v3
 
-import android.annotation.SuppressLint
+import User
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.InputType
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -18,9 +17,17 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.UserProfileChangeRequest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+data class UserCreateDto(
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    val password: String,
+    val totalBalance: Double
+)
 
 class Register : AppCompatActivity() {
 
@@ -42,7 +49,6 @@ class Register : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FirebaseApp.initializeApp(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -63,7 +69,6 @@ class Register : AppCompatActivity() {
         sliderLoginUser = findViewById(R.id.txtViewLoginUser)
         sliderNewUser = findViewById(R.id.txtViewNewUser)
 
-
         setupPasswordVisibilityToggle(password, hidePassword)
         setupPasswordVisibilityToggle(confirmPassword, hideConfirmPassword)
 
@@ -78,7 +83,6 @@ class Register : AppCompatActivity() {
             )
         }
 
-
         sliderLoginUser.setOnClickListener {
             toggleSlider(true)
             startActivity(Intent(this, Login::class.java))
@@ -89,7 +93,6 @@ class Register : AppCompatActivity() {
         }
     }
 
-    //method that handles the colour change between the sliders created
     private fun toggleSlider(isLogin: Boolean) {
         isLoginSliderActive = isLogin
 
@@ -106,81 +109,47 @@ class Register : AppCompatActivity() {
         sliderNewUser.setBackgroundResource(newUserBackground)
     }
 
-    //method that verifies user input before submitting to store in noSQL db: Firebase
-    private fun verifyInput(name: String, surname: String, netWorth: String, username: String,  password: String, confirmedPass: String) {
-        //try and catch so user input does not crash app when errors occur, catch any Exceptions and repeat
+    private fun verifyInput(name: String, surname: String, netWorth: String, username: String, password: String, confirmedPass: String) {
         try {
-            //if statement to check if the name and surname input is not empty,
-            // if it is then it will need the user to add it by displaying error in else
-            if (name.isNotEmpty() && surname.isNotEmpty() && netWorth.isNotEmpty() ){
-                //if statement to check if the username input is not empty and contains an @ symbol,
-                // if it is then it will need the user to fix it by displaying error in else
-                if( username.isNotEmpty() && username.contains('@')){
-                    //if statement to check if the password and confirmedPassword input is not empty and that the two entries equal,
-                    // if it is empty and not equal then it will need the user to fix it by displaying error in else
-                    if(password.isNotEmpty() && confirmedPass.isNotEmpty() &&  password.equals(confirmedPass, ignoreCase = true) ){
-                        //if all of the above is true, then  the user will be registered successfully
-                        registerUser(username, password)
-                        Toast.makeText(this, "Registration successful. \n Your Will Be Redirected To The Login Promptly", Toast.LENGTH_LONG).show()
-
+            if (name.isNotEmpty() && surname.isNotEmpty() && netWorth.isNotEmpty()) {
+                if (username.isNotEmpty() && username.contains('@')) {
+                    if (password.isNotEmpty() && confirmedPass.isNotEmpty() && password.equals(confirmedPass, ignoreCase = true)) {
+                        registerUser(name, surname, netWorth.toDouble(), username, password)
+                        Toast.makeText(this, "Registration successful. \n You will be redirected to the login promptly", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(this, "Please fill out all Password fields correctly: \nClick eye icon to see passwords entered, Verify that they match.", Toast.LENGTH_LONG).show()
                     }
-                    else{
-                        Toast.makeText(this, "Please fill out all Password fields correctly: " +
-                                "nClick eye icon to see passwords entered, Verify that they match.", Toast.LENGTH_LONG).show()
-                    }
+                } else {
+                    Toast.makeText(this, "Please fill out Email field correctly: \nEnsure that you include an '@' symbol.", Toast.LENGTH_LONG).show()
                 }
-                else{
-                    Toast.makeText(this, "Please fill out Email field correctly: " +
-                            "\nEnsure that you include an '@' symbol.", Toast.LENGTH_LONG).show()
-                }
+            } else {
+                Toast.makeText(this, "There are missing fields.\nPlease Fill Out ALL User Details Correctly.", Toast.LENGTH_LONG).show()
             }
-            else {
-                Toast.makeText(this, "There are missing fields.\nPlease Fill Out ALL User Details Correctly. " +
-                        "\n\bENSURE THAT: \n" , Toast.LENGTH_LONG).show()
-            }
-        }
-        catch (e: Exception) {
+        } catch (e: Exception) {
             Toast.makeText(this, "Error processing input: ${e.message}", Toast.LENGTH_LONG).show()
             verifyInput(name, surname, username, password, netWorth, confirmedPass)
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun registerUser(email: String, password: String) {
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-
-                    saveAdditionalUserInfo(email)
-                    loginStatus.setOnClickListener{
-                        val intent = Intent(this, Login::class.java)
-                        startActivity(intent)
-                    }
-
+    private fun registerUser(firstName: String, lastName: String, totalBalance: Double, email: String, password: String) {
+        val newUser = UserCreateDto(firstName, lastName, email, password, totalBalance)
+        RetrofitInstance.api.createUser(newUser).enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(this@Register, "User registered successfully", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this@Register, Login::class.java))
+                    finish()
                 } else {
-                    Toast.makeText(this, "Registration failed: \nCheck all Input fields and try again. \nError: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Register, "Registration failed: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Toast.makeText(this@Register, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
-    //saving the user last name and first name to noSQL database
-    private fun saveAdditionalUserInfo(email: String) {
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            val profileUpdates = UserProfileChangeRequest.Builder()
-                .setDisplayName("$firstname $lastname")
-                .build()
-
-            user.updateProfile(profileUpdates)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this, "User profile updated successfully", Toast.LENGTH_SHORT).show()
-                    }
-                }
-        }
-    }
-
-    //this function is to serve the password visibilirt locks place adjacent to the userinput fields
     private fun setupPasswordVisibilityToggle(editText: EditText, imageView: ImageView) {
         imageView.setOnClickListener {
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -192,8 +161,7 @@ class Register : AppCompatActivity() {
             if (editText.inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
                 editText.inputType = InputType.TYPE_CLASS_TEXT
                 imageView.setImageResource(R.drawable.ic_viewpassword)
-            }
-            else{
+            } else {
                 editText.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
                 imageView.setImageResource(R.drawable.ic_hidepassword)
             }
@@ -201,7 +169,4 @@ class Register : AppCompatActivity() {
             editText.setSelection(selection)
         }
     }
-
-
-
 }

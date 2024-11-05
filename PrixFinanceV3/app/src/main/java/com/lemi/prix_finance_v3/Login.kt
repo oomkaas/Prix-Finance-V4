@@ -1,5 +1,6 @@
 package com.lemi.prix_finance_v3
 
+import User
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -14,11 +15,11 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.google.firebase.FirebaseApp
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.coroutines.*
-import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 
@@ -33,7 +34,6 @@ class Login : AppCompatActivity() {
     private lateinit var sliderLoginUser: TextView
     private lateinit var hidePassword: ImageView
     private lateinit var viewPassword: ImageView
-    private lateinit var dbRef: DatabaseReference
     private var isLoginSliderActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,13 +41,9 @@ class Login : AppCompatActivity() {
         this.enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        // Initializing Firebase
-        FirebaseApp.initializeApp(this)
-        dbRef = FirebaseDatabase.getInstance().reference.child("users")
-
         // Finding all present views...
         btnLogin = findViewById(R.id.btnLogin)
-        btnLoginBiometric = findViewById(R.id.btnLoginBiometrics) // Initialize here
+        btnLoginBiometric = findViewById(R.id.btnLoginBiometrics)
         btnLoginSSO = findViewById(R.id.btnLoginSSO)
         sliderAddUser = findViewById(R.id.txtViewNewUser)
         sliderLoginUser = findViewById(R.id.txtViewLoginUser)
@@ -121,7 +117,6 @@ class Login : AppCompatActivity() {
 
         val loginColor = if (isLogin) Color.parseColor("#FF0000") else Color.GRAY
         val newUserColor = if (!isLogin) Color.parseColor("#FF0000") else Color.GRAY
-
         sliderLoginUser.setTextColor(loginColor)
         sliderAddUser.setTextColor(newUserColor)
 
@@ -137,46 +132,41 @@ class Login : AppCompatActivity() {
             showLoginError("Please enter both username and password")
             return
         }
-        lifecycleScope.launch(Dispatchers.IO) {
-            try {
-                val query = dbRef.orderByChild("userName").equalTo(username)
-                val snapshot = query.get().await()
-
-                if (snapshot.exists()) {
-                    val userUID = snapshot.children.first().key
-                    val userData = snapshot.children.first().getValue(userLoginCredentials::class.java)
-
-                    if (userData != null && userData.password == enteredPassword) {
-                        launch(Dispatchers.Main) {
-                            successfulLogin(userData.userUID, userData.userName)
+        RetrofitInstance.api.getUsers().enqueue(object : Callback<List<User>> {
+            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        val users = response.body()
+                        val user = users?.find { it.email == username && it.password == enteredPassword }
+                        if (user != null) {
+                            MainActivity.Global.userId = user.userId
+                            successfulLogin(user.userId.toString(), user.firstName)
+                        } else {
+                            showLoginError("Invalid email or password")
                         }
                     } else {
-                        launch(Dispatchers.Main) {
-                            showLoginError("Incorrect password")
-                        }
+                        showLoginError("Failed to retrieve users")
                     }
-                } else {
-                    launch(Dispatchers.Main) {
-                        showLoginError("User not found")
-                    }
-                }
-            } catch (e: Exception) {
-                launch(Dispatchers.Main) {
-                    showLoginError("An error occurred: ${e.message}")
                 }
             }
-        }
+
+            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    showLoginError("Error: ${t.message}")
+                }
+            }
+        })
     }
 
     private fun successfulLogin(userUID: String, userName: String) {
         // Save user data in SharedPreferences
-        val prefs = getSharedPreferences("user_data", Context.MODE_PRIVATE)
+        val prefs = this@Login.getSharedPreferences("user_data", Context.MODE_PRIVATE)
         prefs.edit().putString("user_uid", userUID).apply()
         prefs.edit().putString("user_name", userName).apply()
 
         // Start MainActivity
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        this@Login.startActivity(Intent(this@Login, MainActivity::class.java))
+        this@Login.finish()
     }
 
     private fun showLoginError(message: String) {
@@ -185,9 +175,8 @@ class Login : AppCompatActivity() {
 
     private fun setupPasswordVisibilityToggle(editText: EditText?, imageView: ImageView?) {
         imageView?.setOnClickListener {
-            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(editText?.windowToken ?: return@setOnClickListener, 0)
-
             val selection = editText.selectionEnd ?: 0
             editText.setSelection(selection)
 

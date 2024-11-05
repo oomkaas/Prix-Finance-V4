@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: ItemAdapter
     private lateinit var bottomNavigationView: BottomNavigationView
 
+    object Global {
+        var userId: Int? = null
+    }
+
     private val items = mutableListOf(
         Item("Munch", 50.99, "Completed"),
         Item("Rent", 7500.00, "On Track"),

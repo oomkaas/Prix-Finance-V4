@@ -1,3 +1,4 @@
+// `PrixFinanceV3/app/src/main/java/com/lemi/prix_finance_v3/AddTransaction.kt`
 package com.lemi.prix_finance_v3
 
 import android.app.DatePickerDialog
@@ -18,6 +19,7 @@ class AddTransaction : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_add_transaction)
 
         val edtAmount: EditText = findViewById(R.id.edtTransactionAmount)
         val edtName: EditText = findViewById(R.id.edtTransactionName)
@@ -28,23 +30,9 @@ class AddTransaction : AppCompatActivity() {
         val txtDate: TextView = findViewById(R.id.txtDate)
 
         val categories = arrayOf(
-            // Categories taken from (First Bank, 2020).
-            //First Bank (2020). Budgeting 101: Personal Budget Categories. [online] First Bank. Available at: https://localfirstbank.com/article/budgeting-101-personal-budget-categories/?fb_content_cat=fb-tsm [Accessed 31 Oct. 2024].
-            "Housing",
-            "Transportation",
-            "Food",
-            "Utilities",
-            "Clothing",
-            "Medical",
-            "Insurance",
-            "Groceries",
-            "Personal",
-            "Debt/Payments",
-            "Retirement",
-            "Education",
-            "Savings",
-            "Entertainment",
-            "Other"
+            "Housing", "Transportation", "Food", "Utilities", "Clothing", "Medical", "Insurance",
+            "Groceries", "Personal", "Debt/Payments", "Retirement", "Education", "Savings",
+            "Entertainment", "Other"
         )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
@@ -79,13 +67,11 @@ class AddTransaction : AppCompatActivity() {
                 setResult(RESULT_OK, resultIntent)
                 finish()
             }
+        }
 
-            btnCancel.setOnClickListener {
-                setResult(RESULT_CANCELED)
-                finish()
-            }
-
+        btnCancel.setOnClickListener {
+            setResult(RESULT_CANCELED)
+            finish()
         }
     }
-
 }

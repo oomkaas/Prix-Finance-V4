@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.itmBudgetManagement -> {
                     // Handle budget management action
-                    startActivity(Intent(this, BudgetsMenu::class.java))
+                    startActivity(Intent(this, Budget::class.java))
                     true
                 }
                 R.id.itmTransactions -> {

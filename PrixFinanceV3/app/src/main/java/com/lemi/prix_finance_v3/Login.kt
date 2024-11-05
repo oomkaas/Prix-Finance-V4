@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 
 class Login : AppCompatActivity() {
 
@@ -39,15 +41,13 @@ class Login : AppCompatActivity() {
         this.enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        //Initialising Firebase
+        // Initializing Firebase
         FirebaseApp.initializeApp(this)
-
-        // Initializing Firebase Realtime Database reference
         dbRef = FirebaseDatabase.getInstance().reference.child("users")
 
         // Finding all present views...
         btnLogin = findViewById(R.id.btnLogin)
-        btnLoginBiometric = findViewById(R.id.btnLoginBiometrics)
+        btnLoginBiometric = findViewById(R.id.btnLoginBiometrics) // Initialize here
         btnLoginSSO = findViewById(R.id.btnLoginSSO)
         sliderAddUser = findViewById(R.id.txtViewNewUser)
         sliderLoginUser = findViewById(R.id.txtViewLoginUser)
@@ -55,30 +55,29 @@ class Login : AppCompatActivity() {
         username = findViewById(R.id.inpLoginEmail)
         hidePassword = findViewById(R.id.hideLoginPasswordToggle)
 
-        // setting the password initial state
+        // Setting the password initial state
         password.inputType = TYPE_TEXT_VARIATION_PASSWORD
         hidePassword.setImageResource(R.drawable.ic_hidepassword)
 
-        // calling the toggle setup method
+        // Calling the toggle setup method
         setupPasswordVisibilityToggle(password, hidePassword)
 
-        //action on button click
+        // Action on button click for normal login
         btnLogin.setOnClickListener {
             val enteredUsername = username.text.toString()
             val enteredPassword = password.text.toString()
-
             verifyLoginCredentials(enteredUsername, enteredPassword)
         }
 
-
+        // Set up the biometric login button
         btnLoginBiometric.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            authenticateUser()
         }
 
+        // SSO button click
         btnLoginSSO.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
-
 
         sliderLoginUser.setOnClickListener {
             toggleSlider(true)
@@ -90,7 +89,33 @@ class Login : AppCompatActivity() {
         }
     }
 
-    //method that handles the colour change between the sliders created
+    private fun authenticateUser() {
+        val executor = ContextCompat.getMainExecutor(this)
+        val biometricPrompt = BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
+            override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                showLoginError("Authentication error: $errString")
+            }
+
+            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                // Successful authentication, navigate to the main activity
+                successfulLogin("userUID", "userName") // Replace with actual user data as needed
+            }
+
+            override fun onAuthenticationFailed() {
+                showLoginError("Authentication failed")
+            }
+        })
+
+        val promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric Login")
+            .setSubtitle("Log in using your biometric credential")
+            .setNegativeButtonText("Use account password")
+            .build()
+
+        biometricPrompt.authenticate(promptInfo)
+    }
+
+    // Method that handles the color change between the sliders created
     private fun toggleSlider(isLogin: Boolean) {
         isLoginSliderActive = isLogin
 
@@ -169,12 +194,10 @@ class Login : AppCompatActivity() {
             if (editText.inputType == TYPE_TEXT_VARIATION_PASSWORD) {
                 imageView.setImageResource(R.drawable.ic_viewpassword)
                 editText.inputType = TYPE_CLASS_TEXT
-            }
-            else if (editText.inputType == TYPE_CLASS_TEXT){
+            } else if (editText.inputType == TYPE_CLASS_TEXT) {
                 imageView.setImageResource(R.drawable.ic_hidepassword)
                 editText.inputType = TYPE_TEXT_VARIATION_PASSWORD
             }
         }
     }
-
 }
